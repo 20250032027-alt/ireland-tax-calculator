@@ -27,6 +27,21 @@ export const tools: Tool[] = [
     href: "/tools/income-tax-calculator",
   },
   {
+    slug: "contractor-day-rate",
+    title: "Contractor Day Rate Calculator",
+    description: "Convert your PAYE salary to the equivalent contractor day rate. Accounts for employer PRSI, holidays, pension, and accountancy costs to find your true break-even rate.",
+    category: "Income Tax",
+    popular: true,
+    href: "/tools/contractor-day-rate",
+  },
+  {
+    slug: "salary-comparison",
+    title: "Salary Comparison Calculator",
+    description: "Compare two job offers side by side. Enter both salaries and see the real after-tax difference after PAYE, USC, and PRSI.",
+    category: "Income Tax",
+    href: "/tools/salary-comparison",
+  },
+  {
     slug: "usc-calculator",
     title: "USC Calculator",
     description: "Calculate your Universal Social Charge across all four USC bands. Includes the €13,000 exemption threshold.",
@@ -48,6 +63,13 @@ export const tools: Tool[] = [
     href: "/tools/gross-salary-calculator",
   },
   {
+    slug: "payslip-checker",
+    title: "Payslip Checker",
+    description: "Enter your payslip figures to verify your employer is deducting the right amount of PAYE, USC, and PRSI. Spot overtaxing quickly.",
+    category: "Income Tax",
+    href: "/tools/payslip-checker",
+  },
+  {
     slug: "cgt-calculator",
     title: "Capital Gains Tax Calculator",
     description: "Calculate CGT on Irish property, shares, and crypto at the 33% standard rate. Includes the €1,270 annual exemption.",
@@ -60,5 +82,19 @@ export const tools: Tool[] = [
     description: "Find all the tax credits and reliefs you may be entitled to — personal, PAYE, rent, home carer, medical, and more.",
     category: "Other",
     href: "/tools/tax-credits",
+  },
+  {
+    slug: "budget-2026",
+    title: "Budget 2026 Tax Changes",
+    description: "Plain-English summary of every tax change in Budget 2026. New USC rates, PRSI increases, updated credits, and what it means for your pay.",
+    category: "Other",
+    href: "/tools/budget-2026",
+  },
+  {
+    slug: "moving-to-ireland",
+    title: "Moving to Ireland Tax Guide",
+    description: "Complete tax guide for people relocating to Ireland. Covers your first year, PAYE registration, USC exemptions, and how Irish tax compares to the UK and US.",
+    category: "Other",
+    href: "/tools/moving-to-ireland",
   },
 ];

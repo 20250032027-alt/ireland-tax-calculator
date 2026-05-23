@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Calculator, PiggyBank, FileText, Landmark, Coins } from "lucide-react";
+import { ArrowRight, TrendingUp, Calculator, PiggyBank, FileText, Landmark, Coins, Briefcase, GitCompare, ClipboardCheck, BookOpen, Plane } from "lucide-react";
 import type { Tool } from "@/lib/tools";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -17,6 +17,11 @@ const SLUG_ICONS: Record<string, React.ElementType> = {
   "gross-salary-calculator": Calculator,
   "cgt-calculator": Landmark,
   "tax-credits": FileText,
+  "contractor-day-rate": Briefcase,
+  "salary-comparison": GitCompare,
+  "payslip-checker": ClipboardCheck,
+  "budget-2026": BookOpen,
+  "moving-to-ireland": Plane,
 };
 
 export default function ToolCard({ tool }: { tool: Tool }) {
