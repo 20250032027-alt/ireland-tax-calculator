@@ -42,22 +42,22 @@ export default function CGTCalculatorPage() {
           <div className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.25)", color: "#c084fc" }}>
             Investment Tax
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3" style={{ color: "#f0f4ff" }}>
             Capital Gains Tax Calculator 2026
           </h1>
-          <p className="text-base" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-base" style={{ color: "#8899bb" }}>
             Calculate Irish CGT at 33% on gains from property, shares, and crypto. Includes the €1,270 annual exemption. ETF Exit Tax (41%) also supported.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Inputs */}
-          <div className="rounded-2xl p-6" style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
-            <h2 className="text-sm font-semibold mb-5" style={{ color: "var(--text-primary)" }}>Asset details</h2>
+          <div className="rounded-2xl p-6" style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}>
+            <h2 className="text-sm font-semibold mb-5" style={{ color: "#f0f4ff" }}>Asset details</h2>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm mb-1.5" style={{ color: "var(--text-secondary)" }}>Asset type</label>
+                <label className="block text-sm mb-1.5" style={{ color: "#8899bb" }}>Asset type</label>
                 <select value={assetType} onChange={(e) => setAssetType(Number(e.target.value))} disabled={isETF}>
                   {ASSET_TYPES.map((a, i) => <option key={i} value={i}>{a.label}</option>)}
                 </select>
@@ -66,31 +66,31 @@ export default function CGTCalculatorPage() {
               <label className="flex items-center gap-3 cursor-pointer">
                 <input type="checkbox" checked={isETF} onChange={(e) => setIsETF(e.target.checked)} />
                 <div>
-                  <span className="text-sm" style={{ color: "var(--text-primary)" }}>ETF / Investment fund (Exit Tax)</span>
-                  <span className="block text-xs" style={{ color: "var(--text-muted)" }}>Irish-domiciled funds subject to 41% Exit Tax</span>
+                  <span className="text-sm" style={{ color: "#f0f4ff" }}>ETF / Investment fund (Exit Tax)</span>
+                  <span className="block text-xs" style={{ color: "#4a5980" }}>Irish-domiciled funds subject to 41% Exit Tax</span>
                 </div>
               </label>
 
               <div>
-                <label className="block text-sm mb-1.5" style={{ color: "var(--text-secondary)" }}>Sale proceeds</label>
+                <label className="block text-sm mb-1.5" style={{ color: "#8899bb" }}>Sale proceeds</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--text-secondary)" }}>€</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#8899bb" }}>€</span>
                   <input type="number" value={proceeds} onChange={(e) => setProceeds(e.target.value)} className="pl-7" placeholder="50000" min="0" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm mb-1.5" style={{ color: "var(--text-secondary)" }}>Original cost (inc. purchase costs)</label>
+                <label className="block text-sm mb-1.5" style={{ color: "#8899bb" }}>Original cost (inc. purchase costs)</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--text-secondary)" }}>€</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#8899bb" }}>€</span>
                   <input type="number" value={costBasis} onChange={(e) => setCostBasis(e.target.value)} className="pl-7" placeholder="30000" min="0" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm mb-1.5" style={{ color: "var(--text-secondary)" }}>Allowable expenses (solicitor, agent fees)</label>
+                <label className="block text-sm mb-1.5" style={{ color: "#8899bb" }}>Allowable expenses (solicitor, agent fees)</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--text-secondary)" }}>€</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#8899bb" }}>€</span>
                   <input type="number" value={expenses} onChange={(e) => setExpenses(e.target.value)} className="pl-7" placeholder="500" min="0" />
                 </div>
               </div>
@@ -99,19 +99,19 @@ export default function CGTCalculatorPage() {
 
           {/* Results */}
           <div className="space-y-4">
-            <div className="rounded-2xl p-6" style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
-              <p className="text-xs mb-1" style={{ color: "var(--text-secondary)" }}>CGT payable</p>
-              <p className="text-4xl font-bold mb-1" style={{ color: result.tax === 0 ? "var(--accent-green-light)" : "var(--text-primary)" }}>
+            <div className="rounded-2xl p-6" style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <p className="text-xs mb-1" style={{ color: "#8899bb" }}>CGT payable</p>
+              <p className="text-4xl font-bold mb-1" style={{ color: result.tax === 0 ? "#00d084" : "#f0f4ff" }}>
                 {formatEuro(result.tax)}
               </p>
-              <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+              <p className="text-sm" style={{ color: "#8899bb" }}>
                 at {(result.rate * 100).toFixed(0)}% on {formatEuro(result.afterExemption)} chargeable gain
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden" style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
-              <div className="px-5 py-3 border-b" style={{ borderColor: "var(--border)" }}>
-                <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Breakdown</p>
+            <div className="rounded-2xl overflow-hidden" style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="px-5 py-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                <p className="text-sm font-semibold" style={{ color: "#f0f4ff" }}>Breakdown</p>
               </div>
               {[
                 { label: "Sale proceeds", amount: result.p, neutral: true },
@@ -122,22 +122,22 @@ export default function CGTCalculatorPage() {
                 { label: "Chargeable gain", amount: result.afterExemption, neutral: true },
                 { label: `CGT at ${(result.rate * 100).toFixed(0)}%`, amount: -result.tax },
               ].map(({ label, amount, neutral, credit }, i) => (
-                <div key={i} className="flex justify-between px-5 py-2.5 border-b text-sm" style={{ borderColor: "var(--border)" }}>
-                  <span style={{ color: "var(--text-secondary)" }}>{label}</span>
-                  <span className="font-mono font-medium" style={{ color: neutral ? "var(--text-primary)" : credit ? "var(--accent-green-light)" : amount < 0 ? "#f87171" : "var(--text-primary)" }}>
+                <div key={i} className="flex justify-between px-5 py-2.5 border-b text-sm" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                  <span style={{ color: "#8899bb" }}>{label}</span>
+                  <span className="font-mono font-medium" style={{ color: neutral ? "#f0f4ff" : credit ? "#00d084" : amount < 0 ? "#f87171" : "#f0f4ff" }}>
                     {amount < 0 ? `−${formatEuro(Math.abs(amount))}` : formatEuro(amount)}
                   </span>
                 </div>
               ))}
-              <div className="flex justify-between px-5 py-3" style={{ background: "var(--bg-secondary)" }}>
-                <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Net after CGT</span>
-                <span className="text-sm font-bold font-mono" style={{ color: "var(--accent-green-light)" }}>{formatEuro(result.netProceeds)}</span>
+              <div className="flex justify-between px-5 py-3" style={{ background: "#0f1f3d" }}>
+                <span className="text-sm font-semibold" style={{ color: "#f0f4ff" }}>Net after CGT</span>
+                <span className="text-sm font-bold font-mono" style={{ color: "#00d084" }}>{formatEuro(result.netProceeds)}</span>
               </div>
             </div>
 
-            <div className="flex gap-2.5 rounded-xl p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--border)" }}>
-              <Info size={14} className="shrink-0 mt-0.5" style={{ color: "var(--text-muted)" }} />
-              <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            <div className="flex gap-2.5 rounded-xl p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <Info size={14} className="shrink-0 mt-0.5" style={{ color: "#4a5980" }} />
+              <p className="text-xs leading-relaxed" style={{ color: "#4a5980" }}>
                 Principal Private Residence (PPR) relief may reduce or eliminate CGT on your main home. Indexation relief may apply to assets acquired before 2003. CGT returns are due by 31 October. Verify with <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" className="underline">Revenue.ie</a>.
               </p>
             </div>

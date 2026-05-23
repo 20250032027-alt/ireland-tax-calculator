@@ -73,10 +73,10 @@ export default function TaxCreditsPage() {
           >
             Other
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3" style={{ color: "#f0f4ff" }}>
             Irish Tax Credits 2026
           </h1>
-          <p className="text-base max-w-2xl" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-base max-w-2xl" style={{ color: "#8899bb" }}>
             A complete guide to every Irish tax credit available in 2026. Unlike the UK personal
             allowance, Irish tax credits directly reduce your tax bill — not your taxable income.
           </p>
@@ -90,10 +90,10 @@ export default function TaxCreditsPage() {
             border: "1px solid rgba(0,168,107,0.18)",
           }}
         >
-          <h2 className="text-sm font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+          <h2 className="text-sm font-semibold mb-2" style={{ color: "#f0f4ff" }}>
             How tax credits work in Ireland
           </h2>
-          <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-sm leading-relaxed" style={{ color: "#8899bb" }}>
             Ireland&apos;s system is different from the UK. You first calculate your gross tax on all
             income, then subtract your tax credits from that figure. A credit of €2,000 reduces your
             tax bill by €2,000 — regardless of whether you are a standard or higher rate taxpayer. This
@@ -108,15 +108,15 @@ export default function TaxCreditsPage() {
               <div
                 key={label}
                 className="rounded-xl p-3"
-                style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
+                style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}
               >
-                <p className="text-xs mb-1" style={{ color: "var(--text-secondary)" }}>
+                <p className="text-xs mb-1" style={{ color: "#8899bb" }}>
                   {label}
                 </p>
-                <p className="text-xl font-bold" style={{ color: "var(--accent-green-light)" }}>
+                <p className="text-xl font-bold" style={{ color: "#00d084" }}>
                   {value}
                 </p>
-                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                <p className="text-xs" style={{ color: "#4a5980" }}>
                   {sub}
                 </p>
               </div>
@@ -132,9 +132,9 @@ export default function TaxCreditsPage() {
               onClick={() => setActiveCategory(cat)}
               className="px-4 py-2 rounded-full text-sm font-medium transition-all"
               style={{
-                background: activeCategory === cat ? "var(--accent-green)" : "var(--bg-card)",
-                color: activeCategory === cat ? "#fff" : "var(--text-secondary)",
-                border: `1px solid ${activeCategory === cat ? "transparent" : "var(--border)"}`,
+                background: activeCategory === cat ? "#00a86b" : "#111d35",
+                color: activeCategory === cat ? "#fff" : "#8899bb",
+                border: `1px solid ${activeCategory === cat ? "transparent" : "rgba(255,255,255,0.06)"}`,
               }}
             >
               {cat}
@@ -145,7 +145,7 @@ export default function TaxCreditsPage() {
         {/* Credit cards */}
         {filtered.map(({ category, credits }) => (
           <div key={category} className="mb-10">
-            <h2 className="text-base font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
+            <h2 className="text-base font-semibold mb-4" style={{ color: "#f0f4ff" }}>
               {category}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -153,26 +153,26 @@ export default function TaxCreditsPage() {
                 <div
                   key={name}
                   className="rounded-2xl p-5"
-                  style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
+                  style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}
                 >
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-sm font-semibold pr-4" style={{ color: "var(--text-primary)" }}>
+                    <h3 className="text-sm font-semibold pr-4" style={{ color: "#f0f4ff" }}>
                       {name}
                     </h3>
                     <span
                       className="text-base font-bold font-mono shrink-0"
-                      style={{ color: "var(--accent-green-light)" }}
+                      style={{ color: "#00d084" }}
                     >
                       {formatEuro(amount)}
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 mb-2">
-                    <CheckCircle size={12} style={{ color: "var(--accent-green)" }} />
-                    <span className="text-xs" style={{ color: "var(--text-secondary)" }}>
+                    <CheckCircle size={12} style={{ color: "#00a86b" }} />
+                    <span className="text-xs" style={{ color: "#8899bb" }}>
                       {who}
                     </span>
                   </div>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                  <p className="text-xs leading-relaxed" style={{ color: "#4a5980" }}>
                     {desc}
                   </p>
                 </div>
@@ -184,27 +184,27 @@ export default function TaxCreditsPage() {
         {/* Income reliefs section */}
         {(activeCategory === "All") && (
           <div className="mb-10">
-            <h2 className="text-base font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+            <h2 className="text-base font-semibold mb-2" style={{ color: "#f0f4ff" }}>
               Tax reliefs (reduce taxable income)
             </h2>
-            <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
+            <p className="text-sm mb-4" style={{ color: "#8899bb" }}>
               Unlike credits, reliefs reduce your taxable income. At 40% marginal rate, a €1,000
               relief saves you €400 in tax; at 20% it saves €200.
             </p>
-            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border)" }}>
+            <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
               {INCOME_RELIEFS.map(({ name, detail }, i) => (
                 <div
                   key={name}
                   className="px-5 py-4 border-b"
                   style={{
-                    borderColor: "var(--border)",
-                    background: i % 2 === 0 ? "var(--bg-card)" : "var(--bg-secondary)",
+                    borderColor: "rgba(255,255,255,0.06)",
+                    background: i % 2 === 0 ? "#111d35" : "#0f1f3d",
                   }}
                 >
-                  <p className="text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>
+                  <p className="text-sm font-medium mb-1" style={{ color: "#f0f4ff" }}>
                     {name}
                   </p>
-                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  <p className="text-xs leading-relaxed" style={{ color: "#8899bb" }}>
                     {detail}
                   </p>
                 </div>
@@ -216,14 +216,14 @@ export default function TaxCreditsPage() {
         {/* Not included notice */}
         <div
           className="rounded-2xl p-5 flex gap-3"
-          style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}
+          style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}
         >
           <XCircle size={16} className="shrink-0 mt-0.5" style={{ color: "#f87171" }} />
           <div>
-            <p className="text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>
+            <p className="text-sm font-medium mb-1" style={{ color: "#f0f4ff" }}>
               Not included in our calculator
             </p>
-            <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            <p className="text-xs leading-relaxed" style={{ color: "#8899bb" }}>
               Medical expenses relief, flat-rate expenses, remote working relief, and tuition fees
               require individual claims via{" "}
               <a

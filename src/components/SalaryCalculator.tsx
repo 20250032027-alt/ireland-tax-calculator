@@ -65,7 +65,7 @@ export default function SalaryCalculator() {
   );
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="grid-cols-1 lg:grid-cols-2">
+    <div className="calc-grid">
       {/* LEFT */}
       <div style={S.card}>
         <p style={{ fontSize: 15, fontWeight: 600, color: "#f0f4ff", marginBottom: 20 }}>Your details</p>
