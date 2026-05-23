@@ -6,78 +6,55 @@ import { calculate, toAnnual } from "@/lib/taxEngine";
 import { formatEuro, formatPct } from "@/lib/format";
 import type { Frequency, FilingStatus } from "@/lib/taxEngine";
 
+const card: React.CSSProperties = {
+  background: "#111d35",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: 20,
+  padding: 24,
+  boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
+};
+
+const label: React.CSSProperties = {
+  display: "block", fontSize: 12, color: "#8899bb", marginBottom: 6,
+};
+
+const row: React.CSSProperties = {
+  display: "flex", justifyContent: "space-between", alignItems: "center",
+};
+
 export default function QuickCalculator() {
   const [salary, setSalary] = useState("45000");
   const [frequency, setFrequency] = useState<Frequency>("year");
   const [status, setStatus] = useState<FilingStatus>("single");
 
-  const result = useMemo(
-    () =>
-      calculate({
-        grossSalary: parseFloat(salary) || 0,
-        frequency,
-        status,
-        pensionPct: 0,
-        rentCredit: false,
-        homeCarerCredit: false,
-        selfEmployed: false,
-      }),
-    [salary, frequency, status]
-  );
+  const result = useMemo(() => calculate({
+    grossSalary: parseFloat(salary) || 0,
+    frequency, status,
+    pensionPct: 0, rentCredit: false, homeCarerCredit: false, selfEmployed: false,
+  }), [salary, frequency, status]);
 
   const gross = toAnnual(parseFloat(salary) || 0, frequency);
 
   return (
-    <div
-      className="rounded-2xl p-6"
-      style={{
-        background: "var(--bg-card)",
-        border: "1px solid var(--border)",
-        boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
-      }}
-    >
-      <div className="mb-5">
-        <p className="text-sm font-semibold mb-0.5" style={{ color: "var(--text-primary)" }}>
-          Quick Tax Calculator
-        </p>
-        <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-          Calculate your take-home pay in seconds
-        </p>
+    <div style={card}>
+      <div style={{ marginBottom: 20 }}>
+        <p style={{ fontSize: 15, fontWeight: 600, color: "#f0f4ff", marginBottom: 2 }}>Quick Tax Calculator</p>
+        <p style={{ fontSize: 13, color: "#8899bb" }}>Calculate your take-home pay in seconds</p>
       </div>
 
-      <div className="space-y-3 mb-4">
+      <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
         <div>
-          <label className="block text-xs mb-1.5" style={{ color: "var(--text-secondary)" }}>
-            Gross Salary (€)
-          </label>
-          <div className="relative">
-            <span
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-sm"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              €
-            </span>
-            <input
-              type="number"
-              value={salary}
-              onChange={(e) => setSalary(e.target.value)}
-              className="pl-7 text-sm"
-              placeholder="45000"
-              min="0"
-            />
+          <label style={label}>Gross Salary (€)</label>
+          <div style={{ position: "relative" }}>
+            <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#8899bb", fontSize: 15, pointerEvents: "none" }}>€</span>
+            <input type="number" value={salary} onChange={e => setSalary(e.target.value)} style={{ paddingLeft: 28 }} placeholder="45000" min="0" />
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <div>
-            <label className="block text-xs mb-1.5" style={{ color: "var(--text-secondary)" }}>
-              Frequency
-            </label>
-            <select
-              value={frequency}
-              onChange={(e) => setFrequency(e.target.value as Frequency)}
-              className="text-sm"
-            >
+            <label style={label}>Frequency</label>
+            <select value={frequency} onChange={e => setFrequency(e.target.value as Frequency)}>
               <option value="year">Per year</option>
               <option value="month">Per month</option>
               <option value="week">Per week</option>
@@ -85,14 +62,8 @@ export default function QuickCalculator() {
             </select>
           </div>
           <div>
-            <label className="block text-xs mb-1.5" style={{ color: "var(--text-secondary)" }}>
-              Status
-            </label>
-            <select
-              value={status}
-              onChange={(e) => setStatus(e.target.value as FilingStatus)}
-              className="text-sm"
-            >
+            <label style={label}>Status</label>
+            <select value={status} onChange={e => setStatus(e.target.value as FilingStatus)}>
               <option value="single">Single</option>
               <option value="married1">Married (1 income)</option>
               <option value="married2">Married (2 incomes)</option>
@@ -104,72 +75,42 @@ export default function QuickCalculator() {
 
       {/* Results */}
       {gross > 0 && (
-        <div
-          className="rounded-xl p-4 mb-4 space-y-2.5"
-          style={{ background: "var(--bg-secondary)", border: "1px solid var(--border)" }}
-        >
-          <div className="flex justify-between items-center">
-            <span className="text-xs" style={{ color: "var(--text-secondary)" }}>
-              Take-home (annual)
-            </span>
-            <span className="text-base font-bold" style={{ color: "var(--accent-green-light)" }}>
-              {formatEuro(result.net)}
-            </span>
+        <div style={{ background: "#0f1f3d", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: 16, marginBottom: 16 }}>
+          <div style={{ ...row, marginBottom: 10 }}>
+            <span style={{ fontSize: 12, color: "#8899bb" }}>Take-home (annual)</span>
+            <span style={{ fontSize: 20, fontWeight: 700, color: "#00d084", fontFamily: "DM Mono, monospace" }}>{formatEuro(result.net)}</span>
           </div>
-          <div className="h-px" style={{ background: "var(--border)" }} />
-          <div className="flex justify-between items-center">
-            <span className="text-xs" style={{ color: "var(--text-secondary)" }}>Monthly</span>
-            <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
-              {formatEuro(result.netMonthly)}
-            </span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-xs" style={{ color: "var(--text-secondary)" }}>Income tax</span>
-            <span className="text-sm font-medium" style={{ color: "#f87171" }}>
-              −{formatEuro(result.incomeTax)}
-            </span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-xs" style={{ color: "var(--text-secondary)" }}>USC</span>
-            <span className="text-sm font-medium" style={{ color: "#fb923c" }}>
-              −{formatEuro(result.usc)}
-            </span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-xs" style={{ color: "var(--text-secondary)" }}>PRSI</span>
-            <span className="text-sm font-medium" style={{ color: "#fbbf24" }}>
-              −{formatEuro(result.prsi)}
-            </span>
-          </div>
-          <div className="h-px" style={{ background: "var(--border)" }} />
-          <div className="flex justify-between items-center">
-            <span className="text-xs" style={{ color: "var(--text-secondary)" }}>Effective rate</span>
-            <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
-              {formatPct(result.effectiveRate)}
-            </span>
-          </div>
+          <div style={{ height: 1, background: "rgba(255,255,255,0.06)", marginBottom: 10 }} />
+          {[
+            { label: "Monthly", value: formatEuro(result.netMonthly), color: "#f0f4ff" },
+            { label: "Income tax", value: `−${formatEuro(result.incomeTax)}`, color: "#f87171" },
+            { label: "USC", value: `−${formatEuro(result.usc)}`, color: "#fb923c" },
+            { label: "PRSI", value: `−${formatEuro(result.prsi)}`, color: "#fbbf24" },
+            { label: "Effective rate", value: formatPct(result.effectiveRate), color: "#8899bb" },
+          ].map(({ label: l, value, color }) => (
+            <div key={l} style={{ ...row, marginBottom: 7 }}>
+              <span style={{ fontSize: 12, color: "#8899bb" }}>{l}</span>
+              <span style={{ fontSize: 13, fontWeight: 500, color, fontFamily: "DM Mono, monospace" }}>{value}</span>
+            </div>
+          ))}
         </div>
       )}
 
-      <Link
-        href={`/salary-calculator?salary=${salary}&freq=${frequency}&status=${status}`}
-        className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-        style={{
-          background: "var(--accent-green)",
-          color: "#fff",
-          boxShadow: "0 4px 16px rgba(0,168,107,0.25)",
-        }}
-      >
+      <Link href={`/salary-calculator?salary=${salary}&freq=${frequency}&status=${status}`} style={{
+        display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+        width: "100%", padding: "12px 0", borderRadius: 12,
+        background: "#00a86b", color: "#fff", fontWeight: 600, fontSize: 14,
+        textDecoration: "none", boxShadow: "0 4px 16px rgba(0,168,107,0.25)",
+        transition: "opacity 0.15s",
+      }}>
         Full Breakdown <ArrowRight size={14} />
       </Link>
 
-      <div className="flex items-center justify-center gap-4 mt-4">
-        {["Revenue.ie rates", "Instant Results", "No Registration"].map((t) => (
-          <div key={t} className="flex items-center gap-1">
-            <CheckCircle size={11} style={{ color: "var(--accent-green)" }} />
-            <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-              {t}
-            </span>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, marginTop: 14 }}>
+        {["Revenue.ie rates", "Instant Results", "No Registration"].map(t => (
+          <div key={t} style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <CheckCircle size={11} style={{ color: "#00a86b" }} />
+            <span style={{ fontSize: 11, color: "#4a5980" }}>{t}</span>
           </div>
         ))}
       </div>

@@ -1,118 +1,75 @@
+"use client";
 import Link from "next/link";
 import { Calculator } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer
-      className="border-t mt-24"
-      style={{ borderColor: "var(--border)", background: "var(--bg-secondary)" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "var(--accent-green)" }}
-              >
-                <Calculator size={16} color="#fff" />
+    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "#0a1220", marginTop: 96 }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, marginBottom: 40 }}>
+          {/* Brand */}
+          <div style={{ gridColumn: "span 2" }} className="md:col-span-2">
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+              <div style={{ width: 32, height: 32, borderRadius: 8, background: "#00a86b", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Calculator size={15} color="#fff" />
               </div>
-              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>
-                Ireland Tax Calculator
-              </span>
+              <span style={{ fontWeight: 600, color: "#f0f4ff", fontSize: 14 }}>Ireland Tax Calculator</span>
             </div>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
-              Free, accurate Irish tax calculators updated for Budget 2026. Calculate your PAYE
-              income tax, USC, and PRSI instantly. No registration required.
+            <p style={{ fontSize: 13, color: "#8899bb", lineHeight: 1.7, maxWidth: 340, marginBottom: 12 }}>
+              Free, accurate Irish tax calculators updated for Budget 2026. Calculate your PAYE income tax, USC, and PRSI instantly.
             </p>
-            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              © {new Date().getFullYear()} Ireland Tax Calculator. All figures are estimates only.
-              Always verify with{" "}
-              <a
-                href="https://www.revenue.ie"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:opacity-80"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Revenue.ie
-              </a>
-              .
+            <p style={{ fontSize: 12, color: "#4a5980" }}>
+              © {new Date().getFullYear()} Ireland Tax Calculator. Estimates only. Always verify with{" "}
+              <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" style={{ color: "#8899bb", textDecoration: "underline" }}>Revenue.ie</a>.
             </p>
           </div>
 
+          {/* Calculators */}
           <div>
-            <h3 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
-              Calculators
-            </h3>
-            <ul className="space-y-2">
+            <h3 style={{ fontSize: 12, fontWeight: 600, color: "#f0f4ff", marginBottom: 16, textTransform: "uppercase", letterSpacing: "0.08em" }}>Calculators</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 ["Salary Calculator", "/salary-calculator"],
                 ["Income Tax Calculator", "/tools/income-tax-calculator"],
                 ["USC Calculator", "/tools/usc-calculator"],
                 ["PRSI Calculator", "/tools/prsi-calculator"],
               ].map(([label, href]) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm hover:text-white transition-colors"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
-                    {label}
-                  </Link>
-                </li>
+                <Link key={href} href={href} style={{ fontSize: 13, color: "#8899bb", textDecoration: "none" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#f0f4ff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#8899bb")}>
+                  {label}
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
 
+          {/* More */}
           <div>
-            <h3 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
-              More Tools
-            </h3>
-            <ul className="space-y-2">
+            <h3 style={{ fontSize: 12, fontWeight: 600, color: "#f0f4ff", marginBottom: 16, textTransform: "uppercase", letterSpacing: "0.08em" }}>More Tools</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {[
                 ["CGT Calculator", "/tools/cgt-calculator"],
-                ["Tax Code Checker", "/tools/tax-credits"],
+                ["Tax Credits Guide", "/tools/tax-credits"],
                 ["Gross Salary Calculator", "/tools/gross-salary-calculator"],
                 ["All Calculators", "/tools"],
               ].map(([label, href]) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm hover:text-white transition-colors"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
-                    {label}
-                  </Link>
-                </li>
+                <Link key={href} href={href} style={{ fontSize: 13, color: "#8899bb", textDecoration: "none" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#f0f4ff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#8899bb")}>
+                  {label}
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
-        <div
-          className="mt-10 pt-6 border-t flex flex-col sm:flex-row justify-between items-center gap-2"
-          style={{ borderColor: "var(--border)" }}
-        >
-          <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-            Tax rates sourced from{" "}
-            <a
-              href="https://www.revenue.ie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              Revenue Commissioners Ireland
-            </a>{" "}
-            — updated for the 2026 tax year.
+        <div style={{ paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+          <p style={{ fontSize: 12, color: "#4a5980" }}>
+            Tax rates sourced from <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>Revenue Commissioners Ireland</a> — updated for the 2026 tax year.
           </p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="text-xs hover:text-white" style={{ color: "var(--text-muted)" }}>
-              Privacy
-            </Link>
-            <Link href="/disclaimer" className="text-xs hover:text-white" style={{ color: "var(--text-muted)" }}>
-              Disclaimer
-            </Link>
+          <div style={{ display: "flex", gap: 16 }}>
+            <Link href="/privacy" style={{ fontSize: 12, color: "#4a5980", textDecoration: "none" }}>Privacy</Link>
+            <Link href="/disclaimer" style={{ fontSize: 12, color: "#4a5980", textDecoration: "none" }}>Disclaimer</Link>
           </div>
         </div>
       </div>

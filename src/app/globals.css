@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --bg-primary: #0a1628;
@@ -15,40 +13,45 @@
   --text-secondary: #8899bb;
   --text-muted: #4a5980;
   --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
+  --border-hover: rgba(255,255,255,0.14);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: #0a1628;
+  color: #f0f4ff;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
+::-webkit-scrollbar-track { background: #0a1628; }
+::-webkit-scrollbar-thumb { background: #4a5980; border-radius: 3px; }
 
-input[type="number"], input[type="text"], select {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
+/* Base input/select styles */
+input[type="number"],
+input[type="text"],
+select {
+  background: #111d35;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #f0f4ff;
   border-radius: 8px;
   padding: 10px 12px;
   width: 100%;
   font-size: 15px;
   outline: none;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
   -webkit-appearance: none;
   appearance: none;
+  font-family: inherit;
 }
 
 input[type="number"]:focus,
 input[type="text"]:focus,
 select:focus {
-  border-color: var(--accent-green);
+  border-color: #00a86b;
   box-shadow: 0 0 0 3px rgba(0,168,107,0.15);
 }
 
@@ -56,7 +59,14 @@ select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238899bb' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
+  background-color: #111d35;
   padding-right: 32px;
+  cursor: pointer;
+}
+
+select option {
+  background-color: #111d35;
+  color: #f0f4ff;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -66,8 +76,9 @@ input[type=number] { -moz-appearance: textfield; }
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
-  accent-color: var(--accent-green);
+  accent-color: #00a86b;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 input[type="range"] {
@@ -75,37 +86,51 @@ input[type="range"] {
   appearance: none;
   width: 100%;
   height: 4px;
-  background: var(--border-hover);
+  background: rgba(255,255,255,0.12);
   border-radius: 2px;
   border: none;
   padding: 0;
   outline: none;
+  cursor: pointer;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--accent-green);
+  background: #00a86b;
   cursor: pointer;
-  border: 2px solid var(--bg-primary);
+  border: 2px solid #0a1628;
+  box-shadow: 0 0 6px rgba(0,168,107,0.4);
 }
 input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--accent-green);
+  background: #00a86b;
   cursor: pointer;
-  border: 2px solid var(--bg-primary);
+  border: 2px solid #0a1628;
 }
 
+/* Card hover effect */
 .tool-card:hover {
-  background: var(--bg-card-hover) !important;
-  border-color: var(--border-hover) !important;
+  background: #162440 !important;
+  border-color: rgba(255,255,255,0.14) !important;
 }
+
+/* Details/summary accordion */
+details summary::-webkit-details-marker { display: none; }
+details[open] summary svg { transform: rotate(180deg); }
+details summary svg { transition: transform 0.2s ease; }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-up { animation: fadeUp 0.4s ease forwards; }
+.animate-fade-up { animation: fadeUp 0.35s ease forwards; }
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+.pulse-green { animation: pulse-green 2s ease infinite; }

@@ -13,84 +13,54 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className="sticky top-0 z-50 border-b"
-      style={{
-        background: "rgba(10,22,40,0.9)",
-        backdropFilter: "blur(12px)",
-        borderColor: "var(--border)",
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center"
-            style={{ background: "var(--accent-green)" }}
-          >
+    <nav style={{
+      position: "sticky", top: 0, zIndex: 50,
+      background: "rgba(10,22,40,0.92)",
+      backdropFilter: "blur(12px)",
+      borderBottom: "1px solid rgba(255,255,255,0.06)",
+    }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          <div style={{ width: 34, height: 34, borderRadius: 10, background: "#00a86b", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <Calculator size={16} color="#fff" />
           </div>
           <div>
-            <span className="font-semibold text-sm" style={{ color: "var(--text-primary)" }}>
-              Tax Calculator
-            </span>
-            <span
-              className="block text-xs leading-none"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Free Irish Tax Tools
-            </span>
+            <div style={{ fontWeight: 600, fontSize: 14, color: "#f0f4ff", lineHeight: 1.2 }}>Tax Calculator</div>
+            <div style={{ fontSize: 11, color: "#8899bb", lineHeight: 1.2 }}>Free Irish Tax Tools</div>
           </div>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }} className="hidden md:flex">
           {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm transition-colors hover:text-white"
-              style={{ color: "var(--text-secondary)" }}
-            >
+            <Link key={l.href} href={l.href} style={{ fontSize: 14, color: "#8899bb", textDecoration: "none", transition: "color 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#f0f4ff")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#8899bb")}>
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/salary-calculator"
-            className="text-sm px-4 py-2 rounded-lg font-medium transition-all hover:opacity-90"
-            style={{ background: "var(--accent-green)", color: "#fff" }}
-          >
+          <Link href="/salary-calculator" style={{ fontSize: 14, fontWeight: 600, padding: "8px 18px", borderRadius: 10, background: "#00a86b", color: "#fff", textDecoration: "none", boxShadow: "0 4px 14px rgba(0,168,107,0.3)" }}>
             Calculate Now
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setOpen(!open)}
-          style={{ color: "var(--text-secondary)" }}
-          aria-label="Toggle menu"
-        >
+        <button className="md:hidden" onClick={() => setOpen(!open)} style={{ background: "none", border: "none", color: "#8899bb", cursor: "pointer", padding: 6 }}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div
-          className="md:hidden border-t px-4 py-4 flex flex-col gap-3"
-          style={{ borderColor: "var(--border)", background: "var(--bg-secondary)" }}
-        >
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "#0f1f3d", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 12 }} className="md:hidden">
           {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm py-1"
-              style={{ color: "var(--text-secondary)" }}
-              onClick={() => setOpen(false)}
-            >
+            <Link key={l.href} href={l.href} style={{ fontSize: 14, color: "#8899bb", textDecoration: "none", padding: "4px 0" }} onClick={() => setOpen(false)}>
               {l.label}
             </Link>
           ))}
+          <Link href="/salary-calculator" style={{ fontSize: 14, fontWeight: 600, padding: "10px 18px", borderRadius: 10, background: "#00a86b", color: "#fff", textDecoration: "none", textAlign: "center", marginTop: 4 }} onClick={() => setOpen(false)}>
+            Calculate Now
+          </Link>
         </div>
       )}
     </nav>

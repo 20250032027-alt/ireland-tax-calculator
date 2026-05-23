@@ -10,44 +10,33 @@ const categories: (ToolCategory | "All")[] = ["All", "Income Tax", "Investment T
 
 export default function ToolsPage() {
   const [active, setActive] = useState<ToolCategory | "All">("All");
-
-  const filtered = active === "All" ? tools : tools.filter((t) => t.category === active);
+  const filtered = active === "All" ? tools : tools.filter(t => t.category === active);
 
   return (
     <>
       <Navbar />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
-        <div className="mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3" style={{ color: "var(--text-primary)" }}>
-            All Irish Tax Calculators
-          </h1>
-          <p className="text-base" style={{ color: "var(--text-secondary)" }}>
-            Free tools covering every aspect of Irish taxation — updated for Budget 2026.
-          </p>
+      <main style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ marginBottom: 40 }}>
+          <h1 style={{ fontSize: 36, fontWeight: 700, color: "#f0f4ff", marginBottom: 10 }}>All Irish Tax Calculators</h1>
+          <p style={{ fontSize: 15, color: "#8899bb" }}>Free tools covering every aspect of Irish taxation — updated for Budget 2026.</p>
         </div>
 
-        {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className="px-4 py-2 rounded-full text-sm font-medium transition-all"
-              style={{
-                background: active === cat ? "var(--accent-green)" : "var(--bg-card)",
-                color: active === cat ? "#fff" : "var(--text-secondary)",
-                border: `1px solid ${active === cat ? "transparent" : "var(--border)"}`,
-              }}
-            >
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 32 }}>
+          {categories.map(cat => (
+            <button key={cat} onClick={() => setActive(cat)} style={{
+              padding: "8px 18px", borderRadius: 99, fontSize: 13, fontWeight: 500, cursor: "pointer",
+              background: active === cat ? "#00a86b" : "#111d35",
+              color: active === cat ? "#fff" : "#8899bb",
+              border: `1px solid ${active === cat ? "transparent" : "rgba(255,255,255,0.08)"}`,
+              transition: "all 0.15s",
+            }}>
               {cat}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filtered.map((t) => (
-            <ToolCard key={t.slug} tool={t} />
-          ))}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }} className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map(t => <ToolCard key={t.slug} tool={t} />)}
         </div>
       </main>
       <Footer />
