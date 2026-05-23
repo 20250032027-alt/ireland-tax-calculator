@@ -38,7 +38,7 @@ export default function GrossSalaryCalculatorPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <main style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px" }}>
         <div className="mb-10">
           <div className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(0,168,107,0.12)", border: "1px solid rgba(0,168,107,0.25)", color: "#00d084" }}>
             Income Tax

@@ -84,7 +84,7 @@ export default function MovingToIrelandPage() {
   return (
     <>
       <Navbar />
-      <main style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px" }}>
+      <main style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px" }}>
         <div style={{ marginBottom: 48 }}>
           <div style={{ display: "inline-flex", alignItems: "center", fontSize: 12, padding: "4px 12px", borderRadius: 99, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#8899bb", marginBottom: 16 }}>
             Tax Guide

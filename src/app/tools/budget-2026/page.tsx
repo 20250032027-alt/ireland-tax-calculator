@@ -144,7 +144,7 @@ export default function Budget2026Page() {
   return (
     <>
       <Navbar />
-      <main style={{ maxWidth: 900, margin: "0 auto", padding: "48px 24px" }}>
+      <main style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px" }}>
         <div style={{ marginBottom: 48 }}>
           <div style={{ display: "inline-flex", alignItems: "center", fontSize: 12, padding: "4px 12px", borderRadius: 99, background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.25)", color: "#fbbf24", marginBottom: 16 }}>
             Budget 2026

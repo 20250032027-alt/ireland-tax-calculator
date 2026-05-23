@@ -6,9 +6,12 @@ import { calcUSC } from "@/lib/taxEngine";
 import { formatEuro } from "@/lib/format";
 import { Info } from "lucide-react";
 
+const wrap: React.CSSProperties = { maxWidth: 1240, margin: "0 auto", padding: "48px 24px" };
+const card: React.CSSProperties = { background: "var(--bg-2)", border: "1px solid var(--border-0)", borderRadius: "var(--radius-lg)", padding: 24 };
+const lbl: React.CSSProperties = { display: "block", fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--text-2)", marginBottom: 6 };
+
 export default function USCCalculatorPage() {
   const [income, setIncome] = useState("45000");
-
   const gross = parseFloat(income) || 0;
   const { total, bands } = useMemo(() => calcUSC(gross), [gross]);
   const exempt = gross <= 13000;
@@ -16,90 +19,79 @@ export default function USCCalculatorPage() {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <div className="mb-10">
-          <div className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full mb-4" style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.25)", color: "#fbbf24" }}>
-            Income Tax
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3" style={{ color: "#f0f4ff" }}>
-            USC Calculator 2026
-          </h1>
-          <p className="text-base" style={{ color: "#8899bb" }}>
-            Calculate your Universal Social Charge based on 2026 Revenue.ie rates. Exempt if total income ≤ €13,000.
+      <main style={wrap}>
+        <div style={{ marginBottom: 40 }}>
+          <span className="badge badge-neutral" style={{ marginBottom: 16 }}>Income Tax</span>
+          <h1 style={{ marginBottom: 10 }}>USC calculator 2026</h1>
+          <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 520 }}>
+            Calculate your Universal Social Charge based on 2026 Revenue.ie rates. Exempt if income is €13,000 or less.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="calc-grid">
           {/* Input */}
-          <div className="rounded-2xl p-6" style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}>
-            <h2 className="text-sm font-semibold mb-5" style={{ color: "#f0f4ff" }}>Your income</h2>
-            <div className="mb-4">
-              <label className="block text-sm mb-1.5" style={{ color: "#8899bb" }}>Annual gross income</label>
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#8899bb" }}>€</span>
-                <input type="number" value={income} onChange={(e) => setIncome(e.target.value)} className="pl-7" placeholder="45000" min="0" />
+          <div style={card}>
+            <p style={{ fontSize: 14, fontWeight: 600, color: "var(--text-0)", marginBottom: 20 }}>Your income</p>
+            <div style={{ marginBottom: 24 }}>
+              <label style={lbl}>Annual gross income</label>
+              <div style={{ position: "relative" }}>
+                <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--text-2)", pointerEvents: "none" }}>€</span>
+                <input type="number" value={income} onChange={e => setIncome(e.target.value)} style={{ paddingLeft: 28 }} placeholder="45000" />
               </div>
             </div>
 
-            {/* USC band table */}
-            <div className="rounded-xl overflow-hidden mt-6" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-              <div className="px-4 py-2.5" style={{ background: "#0f1f3d", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "#4a5980" }}>2026 USC Bands</p>
+            {/* Band reference */}
+            <div style={{ background: "var(--bg-1)", borderRadius: "var(--radius-md)", overflow: "hidden" }}>
+              <div style={{ padding: "10px 16px", borderBottom: "1px solid var(--border-0)" }}>
+                <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--text-2)" }}>2026 USC bands</p>
               </div>
               {[
-                { band: "Up to €13,000", rate: "Exempt" },
+                { band: "Income ≤ €13,000", rate: "Exempt" },
                 { band: "€0 – €12,012", rate: "0.5%" },
                 { band: "€12,013 – €28,700", rate: "2%" },
                 { band: "€28,701 – €70,044", rate: "3%" },
                 { band: "Above €70,044", rate: "8%" },
-              ].map(({ band, rate }) => (
-                <div key={band} className="flex justify-between px-4 py-2.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                  <span className="text-xs" style={{ color: "#8899bb" }}>{band}</span>
-                  <span className="text-xs font-mono font-medium" style={{ color: "#00d084" }}>{rate}</span>
+              ].map(({ band, rate }, i) => (
+                <div key={band} style={{ display: "flex", justifyContent: "space-between", padding: "10px 16px", borderBottom: i < 4 ? "1px solid var(--border-0)" : "none" }}>
+                  <span style={{ fontSize: 13, color: "var(--text-1)" }}>{band}</span>
+                  <span className="mono" style={{ fontSize: 13, fontWeight: 600, color: "var(--accent-hi)" }}>{rate}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Results */}
-          <div className="space-y-4">
-            <div className="rounded-2xl p-6" style={{ background: exempt ? "rgba(0,168,107,0.08)" : "#111d35", border: `1px solid ${exempt ? "rgba(0,168,107,0.25)" : "rgba(255,255,255,0.06)"}` }}>
-              <p className="text-xs mb-1" style={{ color: "#8899bb" }}>Total USC</p>
-              <p className="text-4xl font-bold mb-1" style={{ color: exempt ? "#00d084" : "#f0f4ff" }}>
-                {exempt ? "Exempt" : formatEuro(total)}
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ ...card, background: exempt ? "rgba(0,168,107,0.08)" : "var(--bg-2)", borderColor: exempt ? "var(--accent-border)" : "var(--border-0)" }}>
+              <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--text-2)", marginBottom: 10 }}>Total USC</p>
+              <p className="num-hero" style={{ fontSize: 44, marginBottom: 6 }}>{exempt ? "€0" : formatEuro(total)}</p>
+              <p style={{ fontSize: 13, color: "var(--text-1)" }}>
+                {exempt ? "Exempt — income under €13,000" : `${((total / gross) * 100).toFixed(1)}% of gross income`}
               </p>
-              {exempt && <p className="text-xs" style={{ color: "#8899bb" }}>Income ≤ €13,000 — no USC payable</p>}
-              {!exempt && gross > 0 && (
-                <p className="text-sm mt-1" style={{ color: "#8899bb" }}>
-                  {((total / gross) * 100).toFixed(1)}% of gross income
-                </p>
-              )}
             </div>
 
             {!exempt && bands.length > 0 && (
-              <div className="rounded-2xl overflow-hidden" style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div className="px-5 py-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                  <p className="text-sm font-semibold" style={{ color: "#f0f4ff" }}>Band breakdown</p>
+              <div style={{ ...card, padding: 0, overflow: "hidden" }}>
+                <div style={{ padding: "14px 20px", borderBottom: "1px solid var(--border-0)", background: "var(--bg-1)" }}>
+                  <p style={{ fontSize: 13, fontWeight: 600, color: "var(--text-0)" }}>Band breakdown</p>
                 </div>
                 {bands.map((b, i) => (
-                  <div key={i} className="px-5 py-3 border-b flex justify-between" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                    <div>
-                      <p className="text-sm" style={{ color: "#8899bb" }}>{b.rate}% on {formatEuro(b.income)}</p>
-                    </div>
-                    <p className="text-sm font-mono font-medium" style={{ color: "#f0f4ff" }}>−{formatEuro(b.amount)}</p>
+                  <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 20px", borderBottom: "1px solid var(--border-0)" }}>
+                    <span style={{ fontSize: 13, color: "var(--text-1)" }}>{b.rate}% on {formatEuro(b.income)}</span>
+                    <span className="mono" style={{ fontSize: 13, fontWeight: 600, color: "#f87171" }}>−{formatEuro(b.amount)}</span>
                   </div>
                 ))}
-                <div className="px-5 py-3 flex justify-between" style={{ background: "#0f1f3d" }}>
-                  <p className="text-sm font-semibold" style={{ color: "#f0f4ff" }}>Total USC</p>
-                  <p className="text-sm font-bold font-mono" style={{ color: "#f87171" }}>−{formatEuro(total)}</p>
+                <div style={{ display: "flex", justifyContent: "space-between", padding: "14px 20px", background: "var(--bg-1)" }}>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: "var(--text-0)" }}>Total USC</span>
+                  <span className="mono" style={{ fontSize: 16, fontWeight: 700, color: "#f87171" }}>−{formatEuro(total)}</span>
                 </div>
               </div>
             )}
 
-            <div className="flex gap-2.5 rounded-xl p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
-              <Info size={14} className="shrink-0 mt-0.5" style={{ color: "#4a5980" }} />
-              <p className="text-xs leading-relaxed" style={{ color: "#4a5980" }}>
-                USC is charged on gross income before pension relief. Medical card holders aged 70+ pay a reduced rate of 2% on all income. Verify with <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" className="underline">Revenue.ie</a>.
+            <div style={{ display: "flex", gap: 10, padding: 14, borderRadius: "var(--radius-md)", background: "rgba(255,255,255,0.02)", border: "1px solid var(--border-0)" }}>
+              <Info size={13} style={{ color: "var(--text-2)", flexShrink: 0, marginTop: 1 }} />
+              <p style={{ fontSize: 11, color: "var(--text-2)", lineHeight: 1.7 }}>
+                Medical card holders aged 70+ pay a reduced 2% rate on all income. USC is charged on gross income before pension relief. Verify with <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-1)", textDecoration: "underline" }}>Revenue.ie</a>.
               </p>
             </div>
           </div>
