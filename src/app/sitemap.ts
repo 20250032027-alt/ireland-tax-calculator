@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/tools/budget-2026", priority: 0.9, changeFrequency: "yearly" as const },
     { url: "/tools/moving-to-ireland", priority: 0.8, changeFrequency: "yearly" as const },
     { url: "/tools/tax-credits", priority: 0.7, changeFrequency: "monthly" as const },
+    { url: "/about", priority: 0.4, changeFrequency: "yearly" as const },
+    { url: "/contact", priority: 0.4, changeFrequency: "yearly" as const },
+    { url: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
     { url: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
     { url: "/disclaimer", priority: 0.3, changeFrequency: "yearly" as const },
   ];

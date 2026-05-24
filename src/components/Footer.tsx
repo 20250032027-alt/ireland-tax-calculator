@@ -73,7 +73,7 @@ export default function Footer() {
             <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-2)", textDecoration: "underline" }}>Revenue Commissioners Ireland</a>.
           </p>
           <div style={{ display: "flex", gap: 16 }}>
-            {[["Privacy", "/privacy"], ["Disclaimer", "/disclaimer"]].map(([l, h]) => (
+            {[["About", "/about"], ["Contact", "/contact"], ["Terms", "/terms"], ["Privacy", "/privacy"], ["Disclaimer", "/disclaimer"]].map(([l, h]) => (
               <Link key={h} href={h} style={{ fontSize: 11, color: "var(--text-2)", textDecoration: "none" }}>{l}</Link>
             ))}
           </div>

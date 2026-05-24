@@ -22,7 +22,7 @@ export default function USCCalculatorPage() {
       <main style={wrap}>
         <div style={{ marginBottom: 40 }}>
           <span className="badge badge-neutral" style={{ marginBottom: 16 }}>Income Tax</span>
-          <h1 style={{ marginBottom: 10 }}>USC calculator 2026</h1>
+          <h1 style={{ marginBottom: 10 }}>How much USC will I pay in 2026?</h1>
           <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 520 }}>
             Calculate your Universal Social Charge based on 2026 Revenue.ie rates. Exempt if income is €13,000 or less.
           </p>

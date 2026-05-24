@@ -1,0 +1,50 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="g1" cx="75%" cy="-10%" r="60%">
+      <stop offset="0%" stop-color="#00a86b" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#070d1a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="0%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#070d1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#070d1a"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+
+  <!-- Badge -->
+  <rect x="80" y="72" width="220" height="32" rx="4" fill="rgba(0,168,107,0.12)" stroke="rgba(0,168,107,0.25)" stroke-width="1"/>
+  <circle cx="102" cy="88" r="4" fill="#00d084"/>
+  <text x="116" y="93" font-family="-apple-system,sans-serif" font-size="12" font-weight="600" fill="#00d084" letter-spacing="1">BUDGET 2026</text>
+
+  <!-- Headline -->
+  <text x="80" y="210" font-family="-apple-system,sans-serif" font-size="96" font-weight="700" fill="#eef2ff" letter-spacing="-4">Irish Tax</text>
+  <text x="80" y="310" font-family="-apple-system,sans-serif" font-size="96" font-weight="700" fill="#00d084" letter-spacing="-4">Calculators</text>
+
+  <!-- Subtext -->
+  <text x="80" y="370" font-family="-apple-system,sans-serif" font-size="22" fill="#8fa0c0">PAYE, USC, and PRSI calculated instantly. Based on Revenue.ie 2026 rates. Free.</text>
+
+  <!-- Divider line -->
+  <line x1="80" y1="440" x2="1120" y2="440" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Stats -->
+  <text x="80" y="490" font-family="-apple-system,sans-serif" font-size="28" font-weight="700" fill="#eef2ff">12</text>
+  <text x="80" y="515" font-family="-apple-system,sans-serif" font-size="12" fill="#4d607e" letter-spacing="1">FREE TOOLS</text>
+
+  <line x1="200" y1="465" x2="200" y2="525" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <text x="224" y="490" font-family="-apple-system,sans-serif" font-size="28" font-weight="700" fill="#eef2ff">2026</text>
+  <text x="224" y="515" font-family="-apple-system,sans-serif" font-size="12" fill="#4d607e" letter-spacing="1">TAX YEAR</text>
+
+  <line x1="360" y1="465" x2="360" y2="525" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <text x="384" y="490" font-family="-apple-system,sans-serif" font-size="28" font-weight="700" fill="#eef2ff">Revenue.ie</text>
+  <text x="384" y="515" font-family="-apple-system,sans-serif" font-size="12" fill="#4d607e" letter-spacing="1">SOURCE</text>
+
+  <!-- Brand -->
+  <rect x="960" y="458" width="40" height="40" rx="10" fill="#00a86b"/>
+  <text x="967" y="484" font-family="-apple-system,sans-serif" font-size="22" fill="white">≡</text>
+  <text x="1012" y="476" font-family="-apple-system,sans-serif" font-size="15" font-weight="600" fill="#eef2ff">Ireland Tax Calculator</text>
+  <text x="1012" y="498" font-family="-apple-system,sans-serif" font-size="12" fill="#4d607e">ireland-tax-calculator.vercel.app</text>
+</svg>

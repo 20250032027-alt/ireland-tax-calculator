@@ -93,7 +93,7 @@ export default function ContractorDayRatePage() {
           <div style={{ display: "inline-flex", alignItems: "center", fontSize: 12, padding: "4px 12px", borderRadius: 99, background: "rgba(0,168,107,0.12)", border: "1px solid rgba(0,168,107,0.25)", color: "#00d084", marginBottom: 16 }}>
             Income Tax
           </div>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: "#f0f4ff", marginBottom: 10 }}>Contractor Day Rate Calculator 2026</h1>
+          <h1 style={{ fontSize: 36, fontWeight: 700, color: "var(--text-0)", marginBottom: 10 }}>What day rate do I need to match my PAYE salary?</h1>
           <p style={{ fontSize: 15, color: "#8899bb", maxWidth: 600 }}>
             Find the day rate you need to match your current PAYE salary. Factors in holidays, pension, accountancy fees, and Irish tax as a self-employed contractor.
           </p>

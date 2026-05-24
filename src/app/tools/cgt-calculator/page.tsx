@@ -34,7 +34,7 @@ export default function CGTCalculatorPage() {
       <main style={wrap}>
         <div style={{ marginBottom: 40 }}>
           <span className="badge badge-neutral" style={{ marginBottom: 16 }}>Investment Tax</span>
-          <h1 style={{ marginBottom: 10 }}>CGT calculator 2026</h1>
+          <h1 style={{ marginBottom: 10 }}>How much Capital Gains Tax do I owe in Ireland?</h1>
           <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 520 }}>
             Calculate Irish Capital Gains Tax at 33% on property, shares, and crypto. Includes the €1,270 annual exemption. ETF Exit Tax (41%) also supported.
           </p>

@@ -367,3 +367,27 @@ details[open] > summary svg {
 details > summary svg {
   transition: transform 0.2s cubic-bezier(0.22,1,0.36,1);
 }
+
+/* Accessibility: respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-green { animation: none !important; }
+  .anim-fade-up,
+  .anim-fade-up-1,
+  .anim-fade-up-2,
+  .anim-fade-up-3,
+  .anim-fade-up-4 { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* Hardware acceleration hint for animated elements */
+.btn-primary,
+.btn-ghost,
+.tool-card,
+.card-lift {
+  will-change: transform;
+}

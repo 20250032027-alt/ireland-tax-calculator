@@ -45,9 +45,22 @@ const faqs = [
   { q: "Does the calculator include pension contributions?", a: "Yes. Drag the pension slider to your contribution percentage. Pension contributions come off your gross before tax, USC, and PRSI are worked out — so you get relief at your top rate." },
 ];
 
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How is Irish income tax calculated?", "acceptedAnswer": { "@type": "Answer", "text": "Ireland uses two rates. Income up to €44,000 (single person, 2026) is taxed at 20%. Everything above is taxed at 40%. Tax credits are then subtracted from the gross figure." } },
+    { "@type": "Question", "name": "What is USC in Ireland?", "acceptedAnswer": { "@type": "Answer", "text": "USC (Universal Social Charge) is a separate charge on gross income. Exempt if income is €13,000 or less. Rates are 0.5%, 2%, 3%, and 8% across four bands in 2026." } },
+    { "@type": "Question", "name": "What PRSI rate do employees pay in 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Most employees pay Class A PRSI at 4.2% of gross earnings in 2026, rising to 4.35% from 1 October 2026." } },
+    { "@type": "Question", "name": "What tax credits does everyone in Ireland get?", "acceptedAnswer": { "@type": "Answer", "text": "Every taxpayer gets the Personal Tax Credit (€2,000). PAYE workers also get the Employee Tax Credit (€2,000), giving €4,000 in credits total." } },
+    { "@type": "Question", "name": "Do pension contributions reduce tax in Ireland?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pension contributions are deducted from gross income before tax, USC, and PRSI are calculated, giving full tax relief at your highest rate." } },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
       <a href="#main" className="skip-link">Skip to content</a>
       <Navbar />
 

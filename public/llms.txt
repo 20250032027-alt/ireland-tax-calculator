@@ -1,0 +1,38 @@
+# Ireland Tax Calculator
+
+> Free Irish tax calculators for 2026. Calculate PAYE income tax, USC, PRSI, capital gains, and contractor rates based on Revenue.ie rates.
+
+## What this site does
+
+Ireland Tax Calculator provides free, browser-based tax calculators for Irish taxpayers. All calculations run locally in the user's browser. No data is stored or transmitted.
+
+## Available calculators
+
+- **Salary Calculator** (/salary-calculator): Take-home pay after PAYE, USC, and PRSI. Supports all filing statuses, pension contributions, and optional tax credits.
+- **Income Tax Calculator** (/tools/income-tax-calculator): PAYE income tax across 20% and 40% rate bands with credits breakdown.
+- **USC Calculator** (/tools/usc-calculator): Universal Social Charge across all four bands. Includes €13,000 exemption.
+- **PRSI Calculator** (/tools/prsi-calculator): Pay Related Social Insurance for Class A, S, and K.
+- **Capital Gains Tax Calculator** (/tools/cgt-calculator): CGT at 33% on property, shares, crypto. ETF Exit Tax (41%) supported. Includes €1,270 annual exemption.
+- **Contractor Day Rate Calculator** (/tools/contractor-day-rate): Break-even day rate vs PAYE salary, factoring in holidays, pension, and overheads.
+- **Salary Comparison** (/tools/salary-comparison): Side-by-side comparison of two job offers after Irish tax.
+- **Payslip Checker** (/tools/payslip-checker): Verify PAYE, USC, and PRSI deductions against expected amounts.
+- **Gross Salary Calculator** (/tools/gross-salary-calculator): Reverse calculator — find gross salary needed for a target net.
+
+## Reference guides
+
+- **Budget 2026 changes** (/tools/budget-2026): Every tax change in Budget 2026 with net impact by salary level.
+- **Moving to Ireland tax guide** (/tools/moving-to-ireland): Tax guide for new arrivals. Covers PAYE registration, first-year rules, and Ireland vs UK vs US comparison.
+- **Tax Credits 2026** (/tools/tax-credits): Full list of Irish tax credits and reliefs with amounts and eligibility.
+
+## Tax rates used (2026)
+
+- Income tax: 20% up to €44,000 (single), 40% above
+- USC: 0.5% / 2% / 3% / 8% across four bands; exempt under €13,000
+- PRSI: 4.2% Class A (rises to 4.35% from 1 Oct 2026)
+- CGT: 33% standard; 41% ETF Exit Tax
+- Personal Tax Credit: €2,000; PAYE Credit: €2,000
+- Source: Revenue.ie, Budget 2026
+
+## About
+
+Free tool. No registration required. No data collected. Figures are estimates only — verify with Revenue.ie or a qualified Irish tax adviser.

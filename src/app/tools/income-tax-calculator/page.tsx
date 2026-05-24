@@ -25,7 +25,7 @@ export default function IncomeTaxCalculatorPage() {
       <main style={wrap}>
         <div style={{ marginBottom: 40 }}>
           <span className="badge badge-neutral" style={{ marginBottom: 16 }}>Income Tax</span>
-          <h1 style={{ marginBottom: 10 }}>Income tax calculator 2026</h1>
+          <h1 style={{ marginBottom: 10 }}>How much income tax do I owe in Ireland in 2026?</h1>
           <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 520 }}>
             Estimate your PAYE income tax across the 20% and 40% rate bands. Includes standard tax credits for 2026.
           </p>

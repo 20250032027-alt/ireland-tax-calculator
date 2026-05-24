@@ -30,7 +30,7 @@ export default function PRSICalculatorPage() {
       <main style={wrap}>
         <div style={{ marginBottom: 40 }}>
           <span className="badge badge-neutral" style={{ marginBottom: 16 }}>Income Tax</span>
-          <h1 style={{ marginBottom: 10 }}>PRSI calculator 2026</h1>
+          <h1 style={{ marginBottom: 10 }}>How much PRSI do I pay in 2026?</h1>
           <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 520 }}>
             Calculate your Pay Related Social Insurance contribution. PRSI funds the Social Insurance Fund and qualifies you for the State pension.
           </p>
