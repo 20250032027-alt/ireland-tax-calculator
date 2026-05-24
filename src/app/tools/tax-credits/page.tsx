@@ -65,7 +65,7 @@ export default function TaxCreditsPage() {
           <span className="badge badge-neutral" style={{ marginBottom: 16 }}>Reference</span>
           <h1 style={{ marginBottom: 10 }}>Irish tax credits 2026</h1>
           <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 560 }}>
-            Every tax credit available in 2026. Unlike the UK personal allowance, Irish credits directly reduce your tax bill — not your taxable income.
+            Every tax credit available in 2026. Unlike the UK personal allowance, Irish credits directly reduce your tax bill, not your taxable income.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export default function TaxCreditsPage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "var(--border-0)", border: "1px solid var(--border-0)", borderRadius: "var(--radius-xl)", overflow: "hidden", marginBottom: 48 }} className="features-grid">
           {[
             { label: "Standard rate taxpayer saves", value: "€2,000", sub: "on Personal Credit" },
-            { label: "Higher rate taxpayer saves", value: "€2,000", sub: "same amount — that's the key difference" },
+            { label: "Higher rate taxpayer saves", value: "€2,000", sub: "same amount. That is the key difference" },
             { label: "Most PAYE workers get", value: "€4,000+", sub: "in combined credits" },
           ].map(({ label, value, sub }) => (
             <div key={label} style={{ background: "var(--bg-1)", padding: "28px 24px" }}>

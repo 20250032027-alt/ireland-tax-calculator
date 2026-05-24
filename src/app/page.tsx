@@ -20,7 +20,7 @@ const features = [
   {
     label: "Accuracy",
     title: "Built from Revenue.ie",
-    body: "Every rate, band, and credit comes straight from the Irish Revenue Commissioners. We update after every Budget — not when we get around to it.",
+    body: "Every rate, band, and credit comes straight from the Irish Revenue Commissioners. We update after every Budget. Not when we get around to it.",
     color: "#00a86b",
   },
   {
@@ -38,11 +38,11 @@ const features = [
 ];
 
 const faqs = [
-  { q: "How is Irish income tax calculated?", a: "Ireland uses two rates. Income up to €44,000 (single person, 2026) is taxed at 20%. Everything above that is taxed at 40%. You then subtract your tax credits from the total — which is different from how the UK personal allowance works." },
+  { q: "How is Irish income tax calculated?", a: "Ireland uses two rates. Income up to €44,000 (single person, 2026) is taxed at 20%. Everything above that is taxed at 40%. You then subtract your tax credits from the total. This is different from how the UK personal allowance works." },
   { q: "What is USC and do I have to pay it?", a: "USC stands for Universal Social Charge. If your total income is €13,000 or less you pay nothing. Above that, it applies across four bands: 0.5%, 2%, 3%, and 8%. It's charged on gross income before pension relief." },
   { q: "What PRSI rate do I pay?", a: "Most employees pay Class A PRSI at 4.2% of gross earnings in 2026. That rises to 4.35% from 1 October 2026. You're exempt in any week where your earnings are €352 or less." },
-  { q: "What tax credits does everyone get?", a: "Every taxpayer gets the Personal Tax Credit (€2,000). PAYE employees also get the Employee Tax Credit (€2,000). Both reduce your tax bill directly — after the tax has been calculated on your income." },
-  { q: "Does the calculator include pension contributions?", a: "Yes. Drag the pension slider to your contribution percentage. Pension contributions come off your gross before tax, USC, and PRSI are worked out — so you get relief at your top rate." },
+  { q: "What tax credits does everyone get?", a: "Every taxpayer gets the Personal Tax Credit (€2,000). PAYE employees also get the Employee Tax Credit (€2,000). Both reduce your tax bill directly, after the tax has been calculated on your income." },
+  { q: "Does the calculator include pension contributions?", a: "Yes. Drag the pension slider to your contribution percentage. Pension contributions come off your gross before tax, USC, and PRSI are worked out. You get relief at your top rate." },
 ];
 
 const homeFaqSchema = {
@@ -200,7 +200,7 @@ export default function HomePage() {
           <h2 style={{ marginBottom: 40 }}>How Irish tax works in 2026</h2>
           {[
             { title: "Income tax (PAYE)", body: "Ireland taxes income at two rates. The first €44,000 goes through at 20%. Anything above is taxed at 40%. Married couples get a wider band, which is why the one-income married result can be significantly better than single." },
-            { title: "Universal Social Charge (USC)", body: "USC is a separate charge on gross income — not income tax. It has four bands in 2026: 0.5%, 2%, 3%, 8%. If you earn €13,000 or less in the year, you pay no USC at all." },
+            { title: "Universal Social Charge (USC)", body: "USC is a separate charge on gross income, separate from income tax. It has four bands in 2026: 0.5%, 2%, 3%, 8%. If you earn €13,000 or less in the year, you pay no USC at all." },
             { title: "PRSI", body: "Class A PRSI is 4.2% of gross pay for most employees. It goes into the Social Insurance Fund, which is what funds your State pension and Jobseeker's Benefit if you need them." },
             { title: "Tax credits", body: "This is where Ireland differs from the UK. There is no tax-free personal allowance here. Instead, you get credits that come off your tax bill after it has been calculated. A €2,000 credit saves you €2,000 in tax regardless of your rate." },
           ].map(({ title, body }, i) => (

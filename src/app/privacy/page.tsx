@@ -12,7 +12,7 @@ export default function PrivacyPage() {
           <p>Ireland Tax Calculator does not collect, store, or transmit any personal data. All calculations are performed entirely in your browser. Your salary figures never leave your device.</p>
           <div style={{ paddingTop: 20, borderTop: "1px solid var(--border-0)" }}>
             <h2 style={{ fontSize: 16, marginBottom: 10 }}>Cookies</h2>
-            <p>We may use standard analytics cookies (e.g. Google Analytics) to understand aggregate site usage — which pages are visited and which calculators are used most. No personally identifiable information is collected. You can opt out via your browser settings.</p>
+            <p>We may use standard analytics cookies (e.g. Google Analytics) to understand aggregate site usage: which pages are visited and which calculators are used most. No personally identifiable information is collected. You can opt out via your browser settings.</p>
           </div>
           <div style={{ paddingTop: 20, borderTop: "1px solid var(--border-0)" }}>
             <h2 style={{ fontSize: 16, marginBottom: 10 }}>Advertising</h2>

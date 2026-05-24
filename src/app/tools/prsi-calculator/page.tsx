@@ -68,7 +68,7 @@ export default function PRSICalculatorPage() {
               </div>
 
               <div style={{ padding: 12, borderRadius: "var(--radius-sm)", background: "var(--bg-1)", border: "1px solid var(--border-0)" }}>
-                <p style={{ fontSize: 12, color: "var(--text-2)" }}>Weekly threshold: €352 (€18,304/yr) — exempt below this</p>
+                <p style={{ fontSize: 12, color: "var(--text-2)" }}>Weekly threshold: €352 (€18,304/yr). Exempt below this.</p>
               </div>
             </div>
           </div>

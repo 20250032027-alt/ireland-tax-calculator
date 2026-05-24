@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About Ireland Tax Calculator — free, accurate Irish tax tools based on Revenue.ie rates.",
+  description: "About Ireland Tax Calculator. Free, accurate Irish tax tools based on Revenue.ie rates.",
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
 
           <div style={{ paddingTop: 24, borderTop: "1px solid var(--border-0)" }}>
             <h2 style={{ fontSize: 18, color: "var(--text-0)", marginBottom: 12 }}>What we built and why</h2>
-            <p>The Irish tax system — with its combination of PAYE, USC, and PRSI — is genuinely confusing, particularly for people arriving from the UK or US where the mechanics are different. Most official resources tell you the rates but not what they actually mean for your payslip.</p>
+            <p>The Irish tax system, with its combination of PAYE, USC, and PRSI, is genuinely confusing, particularly for people arriving from the UK or US where the mechanics are different. Most official resources tell you the rates but not what they actually mean for your payslip.</p>
             <p style={{ marginTop: 12 }}>We built simple, specific calculators that answer the questions people actually have: what will I take home from this salary, what day rate do I need as a contractor, is my payslip deducting the right amount.</p>
           </div>
 

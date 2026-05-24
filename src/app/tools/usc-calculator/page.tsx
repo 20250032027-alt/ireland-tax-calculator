@@ -66,7 +66,7 @@ export default function USCCalculatorPage() {
               <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--text-2)", marginBottom: 10 }}>Total USC</p>
               <p className="num-hero" style={{ fontSize: 44, marginBottom: 6 }}>{exempt ? "€0" : formatEuro(total)}</p>
               <p style={{ fontSize: 13, color: "var(--text-1)" }}>
-                {exempt ? "Exempt — income under €13,000" : `${((total / gross) * 100).toFixed(1)}% of gross income`}
+                {exempt ? "Exempt (income under €13,000)" : `${((total / gross) * 100).toFixed(1)}% of gross income`}
               </p>
             </div>
 

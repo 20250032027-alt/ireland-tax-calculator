@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Ireland Tax Calculator — report an error, suggest a feature, or ask a question.",
+  description: "Contact Ireland Tax Calculator. Report an error, suggest a feature, or ask a question.",
 };
 
 export default function ContactPage() {

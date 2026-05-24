@@ -17,8 +17,8 @@ export default function ToolsPage() {
       <Navbar />
       <main style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 24px" }}>
         <div style={{ marginBottom: 40 }}>
-          <h1 style={{ fontSize: 36, fontWeight: 700, color: "#f0f4ff", marginBottom: 10 }}>All Irish Tax Calculators</h1>
-          <p style={{ fontSize: 15, color: "#8899bb" }}>Free tools covering every aspect of Irish taxation — updated for Budget 2026.</p>
+          <h1 style={{ fontSize: 36, fontWeight: 700, color: "var(--text-0)", marginBottom: 10 }}>All Irish Tax Calculators</h1>
+          <p style={{ fontSize: 15, color: "var(--text-1)" }}>Free tools covering every aspect of Irish taxation, updated for Budget 2026.</p>
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 32 }}>

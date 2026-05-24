@@ -16,7 +16,7 @@ const changes = [
     items: [
       {
         title: "Standard rate band increased to €44,000",
-        detail: "The 20% tax band was raised from €42,000 to €44,000 for single individuals. This means €2,000 more of your income is taxed at 20% instead of 40% — saving up to €400 per year.",
+        detail: "The 20% tax band was raised from €42,000 to €44,000 for single individuals. This means €2,000 more of your income is taxed at 20% instead of 40%, saving up to €400 per year.",
         impact: "+€400/yr for higher earners",
         positive: true,
       },
@@ -151,7 +151,7 @@ export default function Budget2026Page() {
           </div>
           <h1 style={{ fontSize: 36, fontWeight: 700, color: "#f0f4ff", marginBottom: 12 }}>Budget 2026 Irish Tax Changes</h1>
           <p style={{ fontSize: 16, color: "#8899bb", lineHeight: 1.7, maxWidth: 660 }}>
-            Plain-English breakdown of every tax change that affects your pay in 2026. No jargon, no spin — just what changed and what it means for your take-home pay.
+            Plain-English breakdown of every tax change that affects your pay in 2026. No jargon, no spin. Just what changed and what it means for your take-home pay.
           </p>
         </div>
 

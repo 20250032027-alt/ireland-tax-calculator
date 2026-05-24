@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import SalaryCalculator from "@/components/SalaryCalculator";
 
 export const metadata: Metadata = {
-  title: "Irish Salary Calculator 2026 — Take-Home Pay After PAYE, USC & PRSI",
+  title: "Irish Salary Calculator 2026: Take-Home Pay After PAYE, USC & PRSI",
   description: "Calculate your Irish take-home pay for 2026. Accurate PAYE income tax, USC, and PRSI deductions. Supports single, married, contractor, and pension. Free, no registration.",
 };
 
@@ -41,7 +41,7 @@ export default function SalaryCalculatorPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14, color: "var(--text-1)", lineHeight: 1.8, marginBottom: 56 }}>
             <p>Enter your gross salary and select how often you are paid. If you are paid monthly, choose "Per month" and enter your monthly figure. The calculator annualises it automatically and shows both annual and monthly take-home.</p>
             <p>Select your status. Married couples assessed jointly on one income get a higher standard rate band (€53,000 vs €44,000 for single). Two-income married couples get up to €88,000 combined.</p>
-            <p>Use the pension slider to enter your contribution percentage. Pension contributions come off gross income before tax — so you get relief at your highest rate.</p>
+            <p>Use the pension slider to enter your contribution percentage. Pension contributions come off gross income before tax, giving you relief at your highest rate.</p>
           </div>
 
           <h2 style={{ fontSize: 22, marginBottom: 16 }}>2026 Irish tax rates</h2>

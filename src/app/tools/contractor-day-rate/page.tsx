@@ -7,8 +7,8 @@ import { formatEuro } from "@/lib/format";
 import { Info } from "lucide-react";
 
 const S = {
-  card: { background: "#111d35", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: 24 } as React.CSSProperties,
-  label: { display: "block", fontSize: 13, color: "#8899bb", marginBottom: 6 } as React.CSSProperties,
+  card: { background: "var(--bg-2)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: 24 } as React.CSSProperties,
+  label: { display: "block", fontSize: 13, color: "var(--text-1)", marginBottom: 6 } as React.CSSProperties,
   row: { display: "flex", justifyContent: "space-between", alignItems: "center" } as React.CSSProperties,
   mono: { fontFamily: "DM Mono, monospace" } as React.CSSProperties,
 };
@@ -90,11 +90,11 @@ export default function ContractorDayRatePage() {
       <Navbar />
       <main style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 24px" }}>
         <div style={{ marginBottom: 40 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", fontSize: 12, padding: "4px 12px", borderRadius: 99, background: "rgba(0,168,107,0.12)", border: "1px solid rgba(0,168,107,0.25)", color: "#00d084", marginBottom: 16 }}>
+          <div style={{ display: "inline-flex", alignItems: "center", fontSize: 12, padding: "4px 12px", borderRadius: 99, background: "rgba(0,168,107,0.12)", border: "1px solid rgba(0,168,107,0.25)", color: "var(--accent-hi)", marginBottom: 16 }}>
             Income Tax
           </div>
           <h1 style={{ fontSize: 36, fontWeight: 700, color: "var(--text-0)", marginBottom: 10 }}>What day rate do I need to match my PAYE salary?</h1>
-          <p style={{ fontSize: 15, color: "#8899bb", maxWidth: 600 }}>
+          <p style={{ fontSize: 15, color: "var(--text-1)", maxWidth: 600 }}>
             Find the day rate you need to match your current PAYE salary. Factors in holidays, pension, accountancy fees, and Irish tax as a self-employed contractor.
           </p>
         </div>
@@ -102,13 +102,13 @@ export default function ContractorDayRatePage() {
         <div className="calc-grid">
           {/* Inputs */}
           <div style={S.card}>
-            <p style={{ fontSize: 15, fontWeight: 600, color: "#f0f4ff", marginBottom: 20 }}>Your current situation</p>
+            <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text-0)", marginBottom: 20 }}>Your current situation</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
 
               <div>
                 <label style={S.label}>Current PAYE salary (gross annual)</label>
                 <div style={{ position: "relative" }}>
-                  <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#8899bb", pointerEvents: "none" }}>€</span>
+                  <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--text-1)", pointerEvents: "none" }}>€</span>
                   <input type="number" value={payeSalary} onChange={e => setPayeSalary(e.target.value)} style={{ paddingLeft: 28 }} placeholder="60000" />
                 </div>
               </div>
@@ -127,25 +127,25 @@ export default function ContractorDayRatePage() {
               <div>
                 <div style={{ ...S.row, marginBottom: 8 }}>
                   <label style={{ ...S.label, marginBottom: 0 }}>Pension contribution</label>
-                  <span style={{ fontSize: 14, fontWeight: 600, color: "#00d084", ...S.mono }}>{pensionPct}%</span>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: "var(--accent-hi)", ...S.mono }}>{pensionPct}%</span>
                 </div>
                 <input type="range" min={0} max={40} step={1} value={pensionPct} onChange={e => setPensionPct(Number(e.target.value))} />
               </div>
 
-              <div style={{ background: "#0f1f3d", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: 16 }}>
-                <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", color: "#4a5980", marginBottom: 14 }}>Annual contractor overheads</p>
+              <div style={{ background: "var(--bg-1)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: 16 }}>
+                <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-2)", marginBottom: 14 }}>Annual contractor overheads</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   <div>
                     <label style={S.label}>Accountancy fees</label>
                     <div style={{ position: "relative" }}>
-                      <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#8899bb", pointerEvents: "none" }}>€</span>
+                      <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--text-1)", pointerEvents: "none" }}>€</span>
                       <input type="number" value={accountancyCost} onChange={e => setAccountancyCost(e.target.value)} style={{ paddingLeft: 28 }} placeholder="2500" />
                     </div>
                   </div>
                   <div>
                     <label style={S.label}>Professional insurance</label>
                     <div style={{ position: "relative" }}>
-                      <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#8899bb", pointerEvents: "none" }}>€</span>
+                      <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "var(--text-1)", pointerEvents: "none" }}>€</span>
                       <input type="number" value={insuranceCost} onChange={e => setInsuranceCost(e.target.value)} style={{ paddingLeft: 28 }} placeholder="800" />
                     </div>
                   </div>
@@ -158,36 +158,36 @@ export default function ContractorDayRatePage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {/* Hero result */}
             <div style={{ background: "rgba(0,168,107,0.1)", border: "1px solid rgba(0,168,107,0.25)", borderRadius: 20, padding: 28, textAlign: "center" }}>
-              <p style={{ fontSize: 13, color: "#8899bb", marginBottom: 8 }}>Break-even day rate</p>
-              <p style={{ fontSize: 52, fontWeight: 700, color: "#00d084", ...S.mono, lineHeight: 1 }}>
+              <p style={{ fontSize: 13, color: "var(--text-1)", marginBottom: 8 }}>Break-even day rate</p>
+              <p style={{ fontSize: 52, fontWeight: 700, color: "var(--accent-hi)", ...S.mono, lineHeight: 1 }}>
                 {formatEuro(result.breakEvenDay)}
               </p>
-              <p style={{ fontSize: 13, color: "#8899bb", marginTop: 8 }}>per day to match your PAYE take-home</p>
+              <p style={{ fontSize: 13, color: "var(--text-1)", marginTop: 8 }}>per day to match your PAYE take-home</p>
             </div>
 
             {/* Comparison */}
             <div style={{ ...S.card, padding: 0, overflow: "hidden" }}>
               <div style={{ padding: "14px 20px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-                <p style={{ fontSize: 14, fontWeight: 600, color: "#f0f4ff" }}>PAYE vs contractor comparison</p>
+                <p style={{ fontSize: 14, fontWeight: 600, color: "var(--text-0)" }}>PAYE vs contractor comparison</p>
               </div>
               {[
-                { label: "PAYE take-home (annual)", value: formatEuro(result.payeNet), color: "#f0f4ff" },
-                { label: "PAYE take-home (monthly)", value: formatEuro(result.payeMonthly), color: "#8899bb" },
-                { label: "Billable days per year", value: `${result.billableDays} days`, color: "#8899bb" },
-                { label: "Break-even gross (contractor)", value: formatEuro(result.breakEvenGross), color: "#f0f4ff" },
+                { label: "PAYE take-home (annual)", value: formatEuro(result.payeNet), color: "var(--text-0)" },
+                { label: "PAYE take-home (monthly)", value: formatEuro(result.payeMonthly), color: "var(--text-1)" },
+                { label: "Billable days per year", value: `${result.billableDays} days`, color: "var(--text-1)" },
+                { label: "Break-even gross (contractor)", value: formatEuro(result.breakEvenGross), color: "var(--text-0)" },
                 { label: "Contractor overheads", value: `−${formatEuro(result.totalOverheads)}`, color: "#f87171" },
                 { label: "Pension contribution", value: `−${formatEuro(result.pensionContrib)}`, color: "#fb923c" },
-                { label: "Contractor net (after tax + costs)", value: formatEuro(result.breakEvenNet), color: "#00d084" },
+                { label: "Contractor net (after tax + costs)", value: formatEuro(result.breakEvenNet), color: "var(--accent-hi)" },
               ].map(({ label, value, color }, i) => (
                 <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "11px 20px", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-                  <span style={{ fontSize: 13, color: "#8899bb" }}>{label}</span>
+                  <span style={{ fontSize: 13, color: "var(--text-1)" }}>{label}</span>
                   <span style={{ fontSize: 13, fontWeight: 600, color, ...S.mono }}>{value}</span>
                 </div>
               ))}
             </div>
 
-            <div style={{ background: "#111d35", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 16 }}>
-              <p style={{ fontSize: 12, fontWeight: 600, color: "#f0f4ff", marginBottom: 8 }}>What this doesn&apos;t include</p>
+            <div style={{ background: "var(--bg-2)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: 16 }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: "var(--text-0)", marginBottom: 8 }}>What this doesn&apos;t include</p>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
                 {[
                   "Employer PRSI you no longer receive as a benefit (~11.15%)",
@@ -196,8 +196,8 @@ export default function ContractorDayRatePage() {
                   "Revenue preliminary tax (pay tax in advance)",
                   "Business expenses you can legitimately claim",
                 ].map(item => (
-                  <li key={item} style={{ fontSize: 12, color: "#8899bb", paddingLeft: 16, position: "relative" }}>
-                    <span style={{ position: "absolute", left: 0, color: "#4a5980" }}>•</span>
+                  <li key={item} style={{ fontSize: 12, color: "var(--text-1)", paddingLeft: 16, position: "relative" }}>
+                    <span style={{ position: "absolute", left: 0, color: "var(--text-2)" }}>•</span>
                     {item}
                   </li>
                 ))}
@@ -205,9 +205,9 @@ export default function ContractorDayRatePage() {
             </div>
 
             <div style={{ display: "flex", gap: 10, padding: 14, borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <Info size={14} style={{ color: "#4a5980", flexShrink: 0, marginTop: 1 }} />
-              <p style={{ fontSize: 11, color: "#4a5980", lineHeight: 1.7 }}>
-                This is a simplified model using single-person tax rates and Earned Income Credit. Most contractors operate through a limited company — your accountant will give you the exact figures for your structure. Verify with <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" style={{ color: "#8899bb", textDecoration: "underline" }}>Revenue.ie</a>.
+              <Info size={14} style={{ color: "var(--text-2)", flexShrink: 0, marginTop: 1 }} />
+              <p style={{ fontSize: 11, color: "var(--text-2)", lineHeight: 1.7 }}>
+                This is a simplified model using single-person tax rates and Earned Income Credit. Most contractors operate through a limited company. Your accountant will give you the exact figures for your structure. Verify with <a href="https://www.revenue.ie" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-1)", textDecoration: "underline" }}>Revenue.ie</a>.
               </p>
             </div>
           </div>
@@ -215,9 +215,9 @@ export default function ContractorDayRatePage() {
 
         {/* Explainer */}
         <div style={{ marginTop: 64, maxWidth: 720 }}>
-          <h2 style={{ fontSize: 22, fontWeight: 700, color: "#f0f4ff", marginBottom: 20 }}>Why your day rate needs to be higher than you think</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14, color: "#8899bb", lineHeight: 1.8 }}>
-            <p>When you are PAYE, your employer pays 11.15% employer PRSI on top of your salary. That money never appears on your payslip but it is a real cost of employing you. As a contractor, you lose that benefit — so a €60k PAYE salary actually costs your employer about €66,690 in total.</p>
+          <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--text-0)", marginBottom: 20 }}>Why your day rate needs to be higher than you think</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, fontSize: 14, color: "var(--text-1)", lineHeight: 1.8 }}>
+            <p>When you are PAYE, your employer pays 11.15% employer PRSI on top of your salary. That money never appears on your payslip but it is a real cost of employing you. As a contractor, you lose that benefit, meaning a €60k PAYE salary actually costs your employer about €66,690 in total.</p>
             <p>On top of that, contractors pay for things that are invisible as an employee: accountancy (typically €1,500–€3,500/year for a contractor), professional indemnity insurance, and Revenue&apos;s preliminary tax system which requires you to pay tax before you have earned it.</p>
             <p>The general rule of thumb in Ireland is that your day rate should be roughly 1.5× to 2× what a PAYE employee earns per day. This calculator helps you find exactly where your break-even sits.</p>
           </div>
